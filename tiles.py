@@ -4,6 +4,7 @@ class Tile(pygame.sprite.Sprite):
     def __init__(self, pos, size):
         super().__init__()
         self.image = pygame.Surface((size,size))
-        self.rect
+        self.image.fill('grey')
+        self.rect = self.image.get_rect(topleft = pos)
 
-        pygame.draw.rect(DISPLAY, BLUE, (200, 150, 100, 50))
+        # pygame.draw.rect(DISPLAY, BLUE, (200, 150, 100, 50))
