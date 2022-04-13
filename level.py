@@ -18,5 +18,6 @@ class Level:
                     self.tiles.add(tile)
 
     def run(self):
+        self.tiles.update(1)    # scroll entire level to the right
         self.tiles.draw(self.display_surface)
         pass

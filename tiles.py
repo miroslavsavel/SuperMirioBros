@@ -8,3 +8,7 @@ class Tile(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft = pos)
 
         # pygame.draw.rect(DISPLAY, BLUE, (200, 150, 100, 50))
+
+    """for scrolling the level, we will update tile.x coordinate"""
+    def update(self,x_shift):
+        self.rect.x += x_shift
