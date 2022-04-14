@@ -24,6 +24,22 @@ class Level:
                     player_sprite = Player((x, y))  # position is tuple!
                     self.player.add(player_sprite)
 
+    def scroll_x(self):
+        player = self.player.sprite
+        player_x = player.rect.centerx
+        direction_x = player.direction.x
+
+        # left side of the screen
+        if player_x < 200 and direction_x < 0:
+            self.world_shift = 8
+            player.speed = 0
+        elif player_x > 1000 and direction_x > 0:
+            self.world_shift = -8
+            player.speed = 0
+        else:
+            self.world_shift = 0
+            player.speed = 8
+
     def run(self):
         # update tiles
         self.tiles.update(self.world_shift)    # scroll entire level to the right
@@ -32,4 +48,6 @@ class Level:
         #update player
         self.player.update()
         self.player.draw(self.display_surface)
+        self.scroll_x()
         pass
+
