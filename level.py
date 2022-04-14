@@ -25,7 +25,11 @@ class Level:
                     self.player.add(player_sprite)
 
     def run(self):
+        # update tiles
         self.tiles.update(self.world_shift)    # scroll entire level to the right
         self.tiles.draw(self.display_surface)
+
+        #update player
+        self.player.update()
         self.player.draw(self.display_surface)
         pass
