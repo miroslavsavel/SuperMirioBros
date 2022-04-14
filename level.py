@@ -12,17 +12,17 @@ class Level:
 
     def setup_level(self, layout):  #layout will be lvel_data
         self.tiles = pygame.sprite.Group()
+        self.player = pygame.sprite.GroupSingle()
         for row_index,row in enumerate(layout):
             for col_index,cell in enumerate(row):
+                x = col_index * tile_size
+                y = row_index * tile_size
                 if cell == 'X':
-                    x = col_index * tile_size
-                    y = row_index * tile_size
                     tile = Tile((x,y),tile_size)    #position is tuple!
                     self.tiles.add(tile)
                 if cell == 'P':
-                    x = col_index * tile_size
-                    y = row_index * tile_size
-                    tile = Player((x, y))  # position is tuple!
+                    player_sprite = Player((x, y))  # position is tuple!
+                    self.player.add(player_sprite)
 
     def run(self):
         self.tiles.update(self.world_shift)    # scroll entire level to the right
