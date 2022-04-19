@@ -64,8 +64,10 @@ class Level:
                 # figure out if player moving up
                 if player.direction.y > 0: # we are moving up
                     player.rect.bottom = sprite.rect.top
-                elif player.direction.y > 0:    #player if moving down
+                    player.direction.y = 0
+                elif player.direction.y < 0:    #player if moving down
                     player.rect.top = sprite.rect.bottom
+                    player.direction.y = 0
 
 
     def run(self):
