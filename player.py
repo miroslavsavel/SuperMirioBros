@@ -39,4 +39,4 @@ class Player(pygame.sprite.Sprite):
     def update(self):
         self.get_input()
         # self.rect.x += self.direction.x * self.speed  # separate because we want detect horizontal collisions
-        self.apply_gravity()
+        # self.apply_gravity()  # moved to the level class
