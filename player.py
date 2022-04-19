@@ -25,10 +25,16 @@ class Player(pygame.sprite.Sprite):
         else:
             self.direction.x = 0
             pass
+        if keys[pygame.K_SPACE]:
+            self.jump()
 
     def apply_gravity(self):
         self.direction.y += self.gravity
         self.rect.y += self.direction.y
+
+    """Method for counter acting gravity force"""
+    def jump(self):
+        self.direction.y = self.jump_speed
 
     def update(self):
         self.get_input()
