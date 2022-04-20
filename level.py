@@ -3,7 +3,7 @@ from tiles import Tile
 from player import Player
 from settings import tile_size
 from settings import screen_width
-
+#todo generate level string dynamically
 class Level:
     def __init__(self, level_data, surface_to_draw):
         # level setup
