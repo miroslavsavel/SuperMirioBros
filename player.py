@@ -4,8 +4,14 @@ from support import import_folder
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos):
         super().__init__()
-        self.image = pygame.Surface((32,64))
-        self.image.fill('red')
+        self.import_character_assets()
+        self.frame_index = 0
+        self.animation_speed = 0.15
+        # self.image = pygame.Surface((32,64))
+        # self.image.fill('red')
+        self.image = self.animations['idle'][self.frame_index]
+
+
         self.rect = self.image.get_rect(topleft = pos)
 
         # player movement
@@ -17,7 +23,7 @@ class Player(pygame.sprite.Sprite):
     """player animation"""
     def import_character_assets(self):
         # path to folder with animations
-        character_path ='../graphics/character/'
+        character_path ='./graphics/character/'
         # there are folders for idle, run, jump etc..
         self.animations = {'idle':[], 'run':[],'jump':[],'fall':[]}
 
