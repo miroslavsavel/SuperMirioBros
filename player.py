@@ -31,6 +31,14 @@ class Player(pygame.sprite.Sprite):
             full_path = character_path + animation
             self.animations[animation] = import_folder(full_path)
 
+    def animate(self):
+        animation = self.animations['run']
+        # loop over frame index
+        self.frame_index += self.animation_speed
+        if self.frame_index >= len(animation):
+            self.frame_index = 0
+        self.image = animation[int(self.frame_index)]
+
     def get_input(self):
         keys = pygame.key.get_pressed()
 
@@ -58,3 +66,4 @@ class Player(pygame.sprite.Sprite):
         self.get_input()
         # self.rect.x += self.direction.x * self.speed  # separate because we want detect horizontal collisions
         # self.apply_gravity()  # moved to the level class
+        self.animate()
